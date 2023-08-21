@@ -1,4 +1,4 @@
-const taskListContainer = document.querySelector('app__section-task-list')
+const taskListContainer = document.querySelector('.app__section-task-list')
 
 let tarefas = [
     {
@@ -18,7 +18,7 @@ const taskIconSvg = `
     <path
         d="M9 16.1719L19.5938 5.57812L21 6.98438L9 18.9844L3.42188 13.4062L4.82812 12L9 16.1719Z"
         fill="#01080E" />
-</
+</svg>
 `
 function createTask(tarefa) {
     const li = document.createElement('li')
@@ -37,3 +37,8 @@ function createTask(tarefa) {
     
     return li
 }
+
+tarefas.forEach(task => {
+    const taskItem = createTask(task)
+    taskListContainer.appendChild(taskItem)
+})
