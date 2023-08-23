@@ -24,11 +24,27 @@ const taskIconSvg = `
         fill="#01080E" />
 </svg>
 `
-let tarefaSeleciona = null
+
+let tarefaSelecionada = null
 let itemTarefaSelecionada = null
 
-const selecionaTarefa = () => {
+const selecionaTarefa = (tarefa, elemento) => {
+    
+    document.querySelectorAll('.app__section-task-list-item-active').forEach(function (button) {
+        button.classList.remove('app__section-task-list-item-active')
+    })
 
+    if (tarefaSelecionada == tarefa) {
+        taskAtiveDescription.textContent = null
+        itemTarefaSelecionada = null
+        tarefaSelecionada = null
+        return
+    }
+
+    tarefaSelecionada = tarefa
+    itemTarefaSelecionada = elemento
+    taskAtiveDescription.textContent = tarefa.descricao
+    elemento.classList.add('app__section-task-list-item-active')
 }
 
 const limparForm = () => {
