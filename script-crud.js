@@ -64,8 +64,21 @@ function createTask(tarefa) {
 
     paragraph.textContent = tarefa.descricao
 
+    const button = document.createElement('button')
+
     li.onclick = () => {
         selecionaTarefa(tarefa, li)
+    }
+
+    svgIcon.addEventListener('click', (event) => {
+        event.stopPropagation()
+        button.setAttribute('disabled', true)
+        li.classList.add('app__section-task-list-item-complete')
+    })
+
+    if(tarefa.concluida){
+        button.setAttribute('disabled', true)
+        li.classList.add('app__section-task-list-item-complete')
     }
 
     li.appendChild(svgIcon)
