@@ -73,7 +73,11 @@ function createTask(tarefa) {
 
     const button = document.createElement('button')
 
-    button.classList.add('app__button-edit')
+    button.classList.add('app_button-edit')
+    const editIcon = document.createElement('img')
+    editIcon.setAttribute('src', '/imagens/edit.png')
+
+    button.appendChild(editIcon)
 
     li.onclick = () => {
         selecionaTarefa(tarefa, li)
