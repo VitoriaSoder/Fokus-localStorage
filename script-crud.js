@@ -28,6 +28,9 @@ const taskIconSvg = `
 let tarefaSelecionada = null
 let itemTarefaSelecionada = null
 
+let tarefaEmEdicao = null
+let paragraphEmEdicao = null
+
 const selecionaTarefa = (tarefa, elemento) => {
     
     document.querySelectorAll('.app__section-task-list-item-active').forEach(function (button) {
@@ -52,6 +55,10 @@ const limparForm = () => {
     formTask.classList.add('hidden')
 }
 
+const selecionaTarefaParaEditar = () => {
+
+}
+
 function createTask(tarefa) {
     const li = document.createElement('li')
     li.classList.add('app__section-task-list-item')
@@ -65,6 +72,8 @@ function createTask(tarefa) {
     paragraph.textContent = tarefa.descricao
 
     const button = document.createElement('button')
+
+    button.classList.add('app__button-edit')
 
     li.onclick = () => {
         selecionaTarefa(tarefa, li)
@@ -83,6 +92,7 @@ function createTask(tarefa) {
 
     li.appendChild(svgIcon)
     li.appendChild(paragraph)
+    li.appendChild(button)
     
     return li
 }
