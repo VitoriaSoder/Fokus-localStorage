@@ -51,12 +51,23 @@ const selecionaTarefa = (tarefa, elemento) => {
 }
 
 const limparForm = () => {
+    tarefaEmEdicao = null
+    paragraphEmEdicao = null
     textarea.value = ''
     formTask.classList.add('hidden')
 }
 
-const selecionaTarefaParaEditar = () => {
+const selecionaTarefaParaEditar = (tarefa, elemento) => {
+    if(tarefaEmEdicao == tarefa) {
+        limparForm()
+        return
+    }
 
+    formLabel.textContent='Editando tarefa'
+    tarefaEmEdicao=tarefa
+    paragraphEmEdicao=elemento
+    textarea.value = tarefa.descricao
+    formTask.classList.remove('hidden')
 }
 
 function createTask(tarefa) {
