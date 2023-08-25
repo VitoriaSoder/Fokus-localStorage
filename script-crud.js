@@ -12,6 +12,8 @@ const textarea = document.querySelector('.app__form-textarea')
 
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel')
 
+const btnDeletar = document.querySelector('.app__form-footer__button--delete')
+
 const localStorageTarefas = localStorage.getItem('tarefas')
 let tarefas = localStorageTarefas ? JSON.parse(localStorageTarefas) : []
 
@@ -138,6 +140,23 @@ btnCancelar.addEventListener('click', limparForm)
 toggleFormTaskBtn.addEventListener('click', () => {
     formLabel.textContent = 'Adicionando tarefa'
     formTask.classList.toggle('hidden')
+})
+
+btnDeletar.addEventListener('click', () => {
+    if (tarefaSelecionada) {
+        const index = tarefas.indexOf(tarefaSelecionada);
+        if (index !== -1) {
+            tarefas.splice(index, 1);
+        }
+        
+        itemTarefaSelecionada.remove()
+        tarefas.filter(t => t != tarefaSelecionada) 
+        itemTarefaSelecionada = null
+        tarefaSelecionada = null
+    }
+
+    updateLocalStorage()
+    limparForm()
 })
 
 const updateLocalStorage = () => {
