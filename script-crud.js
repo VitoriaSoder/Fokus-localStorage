@@ -1,19 +1,13 @@
 const taskListContainer = document.querySelector('.app__section-task-list')
-
 const formTask = document.querySelector('.app__form-add-task')
 const toggleFormTaskBtn = document.querySelector('.app__button--add-task')
 const formLabel = document.querySelector('.app__form-label')
-
 const cancelFormTaskBtn = document.querySelector('.app__form-footer__button--cancel')
-
 const taskAtiveDescription = document.querySelector('.app__section-active-task-description')
-
 const textarea = document.querySelector('.app__form-textarea')
 
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel')
-
 const btnDeletar = document.querySelector('.app__form-footer__button--delete')
-
 const btnDeletarConcluidas = document.querySelector('#btn-remover-concluidas')
 const btnDeletarTodas = document.querySelector('#btn-remover-todas')
 
@@ -32,7 +26,6 @@ const taskIconSvg = `
 
 let tarefaSelecionada = null
 let itemTarefaSelecionada = null
-
 let tarefaEmEdicao = null
 let paragraphEmEdicao = null
 
